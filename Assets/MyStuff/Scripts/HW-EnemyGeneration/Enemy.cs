@@ -2,16 +2,37 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _speed = 2f;
-    private Vector3 _vector;
+    [SerializeField] private float _pathTime;
+
+    private Target _target;
+    private Vector3 _startPosition;
+    private Renderer _renderer;
+    private float _currentPathRunningTime;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+    }
+
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
 
     private void Update()
     {
-        transform.Translate(_vector * (_speed * Time.deltaTime));
+        _currentPathRunningTime += Time.deltaTime;
+        transform.position =
+            Vector3.Lerp(_startPosition, _target.transform.position, _currentPathRunningTime / _pathTime);
     }
 
-    public void SetMotionVector(Vector3 vector)
+    public void SetMotionVector(Target target)
     {
-        _vector = vector;
+        _target = target;
+    }
+
+    public void SetColor(Color color)
+    {
+        _renderer.material.color = color;
     }
 }

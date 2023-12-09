@@ -3,18 +3,21 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] private Enemy _template;
+    [SerializeField] private Color _color;
+
+    private Target _target;
+
+    private void Start()
+    {
+        _target = GetComponentInChildren<Target>();
+        Renderer renderer = GetComponent<Renderer>();
+        renderer.material.color = _color;
+    }
 
     public void GenerateEnemy()
     {
         Enemy newEnemy = Instantiate(_template, transform.position, Quaternion.identity);
-
-        int minInclusive = 0;
-        var maxExclusive = 10;
-        Vector3 randomVector = new Vector3(
-            Random.Range(minInclusive, maxExclusive),
-            Random.Range(minInclusive, maxExclusive),
-            Random.Range(minInclusive, maxExclusive)
-        );
-        newEnemy.SetMotionVector(randomVector);
+        newEnemy.SetMotionVector(_target);
+        newEnemy.SetColor(_color);
     }
 }
