@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScaleIncreaser : MonoBehaviour
+public class CapsuleScaleIncreaser : MonoBehaviour
 
 {
     [SerializeField] private float _scaleIncreaseTime;

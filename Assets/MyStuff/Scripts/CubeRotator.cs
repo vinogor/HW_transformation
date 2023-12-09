@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+public class CubeRotator : MonoBehaviour
 {
     private static float s_fullRotationAngle = 360;
 

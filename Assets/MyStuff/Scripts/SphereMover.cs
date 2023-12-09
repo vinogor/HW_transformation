@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoverForward : MonoBehaviour
+public class SphereMover : MonoBehaviour
 {
     [SerializeField] private float _targetX;
     [SerializeField] private float _pathTime;
