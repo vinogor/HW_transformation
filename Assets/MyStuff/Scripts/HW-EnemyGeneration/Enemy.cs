@@ -2,10 +2,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _speed = 4f;
+    private float _speed = 2f;
+    private Vector3 _vector;
 
     private void Update()
     {
-        transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
+        transform.Translate(_vector * (_speed * Time.deltaTime));
+    }
+
+    public void SetMotionVector(Vector3 vector)
+    {
+        _vector = vector;
     }
 }

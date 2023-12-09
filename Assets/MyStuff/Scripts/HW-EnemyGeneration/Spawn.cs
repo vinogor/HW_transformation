@@ -6,7 +6,15 @@ public class Spawn : MonoBehaviour
 
     public void GenerateEnemy()
     {
-        Quaternion randomRotation = Random.rotation;
-        Instantiate(_template, transform.position, randomRotation);
+        Enemy newEnemy = Instantiate(_template, transform.position, Quaternion.identity);
+
+        int minInclusive = 0;
+        var maxExclusive = 10;
+        Vector3 randomVector = new Vector3(
+            Random.Range(minInclusive, maxExclusive),
+            Random.Range(minInclusive, maxExclusive),
+            Random.Range(minInclusive, maxExclusive)
+        );
+        newEnemy.SetMotionVector(randomVector);
     }
 }
