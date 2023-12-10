@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class SpawnsPool : MonoBehaviour
+public class SpawnersPool : MonoBehaviour
 {
     [SerializeField] private float _enemyCreationTime;
 
-    private Spawn[] _spawns;
+    private Spawner[] _spawns;
     private float _currentRunningTime;
 
     private void Awake()
     {
-        _spawns = GetComponentsInChildren<Spawn>();
+        _spawns = GetComponentsInChildren<Spawner>();
     }
 
     private void Update()
@@ -24,8 +24,8 @@ public class SpawnsPool : MonoBehaviour
         _currentRunningTime = 0;
 
         int randomSpawnIndex = Random.Range(0, _spawns.Length);
-        Spawn randomSpawn = _spawns[randomSpawnIndex];
+        Spawner randomSpawner = _spawns[randomSpawnIndex];
 
-        randomSpawn.GenerateEnemy();
+        randomSpawner.GenerateEnemy();
     }
 }

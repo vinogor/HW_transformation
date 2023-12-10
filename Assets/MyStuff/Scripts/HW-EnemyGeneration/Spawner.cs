@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawn : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy _template;
     [SerializeField] private Color _color;
