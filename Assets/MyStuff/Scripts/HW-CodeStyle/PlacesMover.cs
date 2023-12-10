@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GoPlaces : MonoBehaviour
+public class PlacesMover : MonoBehaviour
 {
     [SerializeField] private Transform _allPlacesPoint;
     [SerializeField] private float _velocity;
@@ -20,13 +20,13 @@ public class GoPlaces : MonoBehaviour
 
     private void Update()
     {
-        Transform currentPoint = _places[_numberOfPlace];
+        Transform currentPlace = _places[_numberOfPlace];
         transform.position = Vector3.MoveTowards(
             transform.position,
-            currentPoint.position,
+            currentPlace.position,
             _velocity * Time.deltaTime);
 
-        if (transform.position == currentPoint.position)
+        if (transform.position == currentPlace.position)
         {
             NextPlaceTakerLogic();
         }
