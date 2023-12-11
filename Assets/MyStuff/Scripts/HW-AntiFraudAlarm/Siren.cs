@@ -35,14 +35,12 @@ public class Siren : MonoBehaviour
 
     public void TurnOnSound()
     {
-        Debug.Log("TurnOnSound");
         _isSoundOn = true;
         _audioSource.Play();
     }
 
     public void TurnOffSound()
     {
-        Debug.Log("TurnOffSound");
         _isSoundOn = false;
     }
 

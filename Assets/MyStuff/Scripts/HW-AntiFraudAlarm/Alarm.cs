@@ -8,13 +8,11 @@ public class Alarm : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
         thiefEntered?.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("OnTriggerExit");
         thiefRunAway?.Invoke();
     }
 }
