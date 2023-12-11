@@ -20,11 +20,11 @@ public class Alarm : MonoBehaviour
     {
         if (_isSoundOn)
         {
-            _audioSource.volume = ChangeVolumeTo(MaxVolume);
+            ChangeVolumeTo(MaxVolume);
         }
         else
         {
-            _audioSource.volume = ChangeVolumeTo(MinVolume);
+            ChangeVolumeTo(MinVolume);
 
             if (_audioSource.volume == MinVolume)
             {
@@ -44,8 +44,8 @@ public class Alarm : MonoBehaviour
         _isSoundOn = false;
     }
 
-    private float ChangeVolumeTo(int targetVolume)
+    private void ChangeVolumeTo(int targetVolume)
     {
-        return Mathf.MoveTowards(_audioSource.volume, targetVolume, _volumeChangeSpeed * Time.deltaTime);
+        _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, targetVolume, _volumeChangeSpeed * Time.deltaTime);
     }
 }
